@@ -1,0 +1,22 @@
+{
+  "name": "nomz",
+  "version": "1.0.0",
+  "description": "testing",
+  "main": "nomznode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaclynt18/Nomz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaclynt18/Nomz/issues"
+  },
+  "homepage": "https://github.com/jaclynt18/Nomz#readme",
+  "devDependencies": {
+    "eslint": "^4.8.0"
+  }
+}
