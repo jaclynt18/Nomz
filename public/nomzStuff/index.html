@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Website Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      .navbar{
+          margin-bottom: 0;
+          border-radius: 0;
+          background-color:cadetblue;
+          color: #FFF;
+          padding: 1% 0;
+          font-size: 1.2 em;
+          border: 0;
+      }
+      .navbar-brand {
+          float: left;
+          min-height: 55px;
+          padding: 0 15px 5px;
+      }
+      .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover,{
+          color:#FFF;
+          background-color: #5E4485;
+      }
+      .navbar-inverse .navbar-nav li a{
+          color:#D5D5D5;
+      }
+      .carousel-caption{
+          top: 50%;
+          transform: translateY(-50%);
+          text-transform: uppercase;
+      }
+      .btn{
+          font-size: 18px;
+          color: #FFF;
+          padding:12px 22px;
+          background: cadetblue;
+          border: 2px #FFF solid;
+      }
+
+      #icon {
+          max-width: 200px;
+          margin: 1% auto;
+      }
+
+      @media(max-width: 600px){
+          .carousel-caption{
+          .carousel-caption{
+              display:none;
+          }
+      }
+
+
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+          </button>
+          <a class = "navbar-brand" href = "#"><img src = "img/w3newbie.png"></a>
+        </div>
+        <div class = "collapse navbar-collapse" id="myNavbar">
+          <ul class = "nav navbar-nav navbar-right">
+            <li class = "active"><a href = "#">Home</a></li>
+              <li><a href = "#">Profile</a></li>
+              <li><a href = "#">About</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div id = "myCarousel" class = "carousel slide" data-ride="carousel">
+        <ol class = "carousel-indicators">
+        <li data-target = "#myCarousel" data-slide-to="0" class = "active"></li>
+        <li data-target = "#myCarousel" data-slide-to="1"></li>
+        <li data-target = "#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class = "carousel-inner" role = "listbox">
+            <div class = "item active">
+            <img src = "img/red.png">
+            <div class = "carousel-caption">
+                    <h1>omg i made a thing</h1>
+                    <br>
+                    <button type = "button" class = "btn btn-default">Its a Button!</button>
+            </div>
+            </div><!----End Active ---->
+            <div class = "item">
+                <img src = "img/mountains.png">
+            </div>
+                <div class = "item">
+                    <img src = "img/snow.png">
+            </div>
+        </div>
+        <!---Start Slider Control ----->
+        <a class="left carousel-control" href = "#myCarousel" role = "button" data-slide="prev">
+        <span class = "glyphicon glyphicon-chevron-left" aria-hidden = "true"></span>
+        <span class = "sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href = "#myCarousel" role = "button" data-slide="next">
+        <span class = "glyphicon glyphicon-chevron-right" aria-hidden = "true"></span>
+        <span class = "sr-only">Next</span>
+        </a>
+    </div>  <!---------End of Slider  ------>
+    <div class= "container text-center">
+        <h2>Pretty Icon Stuff</h2>
+        <div class = "row">
+            <div class = "col-sm-4">
+                <img src= "img/html5.png" id = "icon">
+                <hd4>HTML5</hd4>
+            </div>
+            <div class = "col-sm-4">
+                <img src= "img/bootstrap.png" id = "icon">
+                <hd4>Bootstrap</hd4>
+            </div>
+            <div class = "col-sm-4">
+                <img src= "img/css3.png" id = "icon">
+                <hd4>CSS3</hd4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
