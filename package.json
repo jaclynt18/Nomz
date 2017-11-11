@@ -18,5 +18,8 @@
   "homepage": "https://github.com/jaclynt18/Nomz#readme",
   "devDependencies": {
     "eslint": "^4.8.0"
+  },
+  "dependencies": {
+    "google-auth-library": "^0.11.0"
   }
 }

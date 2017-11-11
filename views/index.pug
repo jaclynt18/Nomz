@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  form(method='POST' action='/')
+    div.form-group
+        label(for='fname') First name:
+        input.form-control(type='text' name='fname')
+    div.form-group
+        label(for='lname') Last name: 
+        input.form-control(type='text' name='lname')
+    div.form-group
+        label(for='emotion') Current Emotion: 
+        input.form-control(type='text' name='emotion')
+    button.btn.btn-primary(type='submit') Submit
+  br
+  br
+  form(method='GET' action='/first')
+    div.form-group
+        label(for='first') What is your first name? 
+        input.form-control(type='text' name='first')
+    button.btn.btn-primary(type='submit') Click to retrieve first name
+
