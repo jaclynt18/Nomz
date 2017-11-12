@@ -4,10 +4,6 @@ var path = require('path');
 
 /* GET users listing. */
 
-router.get('/nomzHome.html', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/nomzStuff/', 'nomzHome.html'))
-});
-
 router.get('/styles.css', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../styles.css'))
 });
