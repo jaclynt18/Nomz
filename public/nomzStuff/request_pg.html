@@ -1,26 +1,209 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-    <h1>What kind of food would you like to request? Please enter your preferences.</h1>
+<head>
+  <title>Bootstrap Website Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+   <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     
-    
-    </head>
-    <body>
+    <style>
+        .navbar{
+          margin-bottom: 0;
+          border-radius: 0;
+          background-color:#393E41;
+          color: #FFF;
+          padding: 1% 0;
+          font-size: 1.2 em;
+          border: 0;
+      }
+      .navbar-brand {
+          float: left;
+          max-height: 50px;
+          padding: 0 15px 5px;
+      }
+      .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover,{
+          color:#FFF;
+          background-color: #5E4485;
+      }
+      .navbar-inverse .navbar-nav li a{
+          color:#D5D5D5;
+      }
+      
+      .new-section {
+            height: 100%;
+            text-align: center;
+            background: #eee;
+        }
+        .cadetblue {
+            background-color: cadetblue;
+        }
 
-<form action="/action_page.php">
-  Number of Servings:<br>
-  <input type="text" name="Number of Servings">
-  <br>
-  Allergies:<br>
-  <input type="text" name="Allergies?" >
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
+      .carousel-caption{
+          top: 50%;
+          transform: translateY(-50%);
+          text-transform: uppercase;
+      }
+      .btn{
+          font-size: 18px;
+          color: #FFF;
+          padding:12px 22px;
+          background: cadetblue ;
+          border: 2px #FFF solid;
+          width: 500px;
+      }
+      
+      div#mapholder {
+          margin: 0 auto 0 auto;
+      }
+      
+      #icon {
+          max-height: 300px
+          margin: 1% auto;
+      }
 
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+      @media(max-width: 600px){
+          .carousel-caption{
+              display:none;
+          }
+      }
+
+    #map {
+    height: 600px;
+    }
+
+    h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 300%;
+}
+    
+    p  {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 160%;
+}
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+          </button>
+          <img src = "img/nomzTitle.png" style="width:450px;height:128px;">
+        </div>
+        <div class = "collapse navbar-collapse" id="myNavbar">
+          <ul class = "nav navbar-nav navbar-right">
+            <li class = "active"><a href = "#">Home</a></li>
+              <li><a href = "#">Profile</a></li>
+              <li><a href = "#">About</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+<!------ start geolocation --------------->
+
+
+<section id="new" class="new-section">
+  <div class="container fluid">
+    <div class="row">
+      <div class="container text-center">
+        <h1>What kind of food would you like to request? Please enter your preferences</h1>
+      </div>
+
+      <div class="container text-center #E4F6F8">
+          <button onclick="getLocation()" type = "button" class = "btn btn-default">Click Me to Enable Map!</button>
+      </div>
+    </div>
+  </div>
+</section>    
+    
+
+<div id="mapholder"></div>
+
+<script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var latlon = new google.maps.LatLng(lat, lon)
+    var mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '400px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
 
     
-    
-    </body>    
+<!---------End of Slider  ------>
+    <div class= "container-fluid text-center">
+        <div class = "border row">
+             <div class="border col-xs-4".col-xs-4>
+               Number of Servings:<br>
+                 <input type="text" name="Number of Servings">
+                <br>
+               </div>     
+            <div class="border col-xs-4".col-xs-4>
+                 Allergies:<br>
+                    <input type="text" name="Allergies?" >
+                    <br><br>
+                    <input type="submit" value="Submit">
+            </div>
+            <div class="border col-xs-4".col-xs-4>
+                 Search Radius:<br>
+                    <input type="text" name="Search Radius" >
+                    <br><br>
+                    <input type="submit" value="Submit">
+            </div>
+        </div>
+    </div>
+</body>
 </html>
+
+
     
