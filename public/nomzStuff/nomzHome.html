@@ -108,16 +108,30 @@
     padding-bottom: 22px;
     }
     
+    h3{ 
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 120%;
+    color: #506C64;
+    position: relative;
+        }
+    
+    h4{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 120%;
+    color: #587291;
+    position: relative;   
+        }
+    
     p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 120%;
     color: azure;
     position: relative;
     float: left;
-    top: 100%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, 15%);
-    padding-bottom: px;
+    padding-bottom: 12px;
     }
         
         img {
@@ -220,15 +234,15 @@
           
           
           var infowindowM0 = new google.maps.InfoWindow({
-              content:"Me <br> Servings: 2 <br> Type of Food: Paninis" 
+              content:"<h4> Me <br> Servings: 2 <br> Type of Food: Paninis </h4>" 
           });
           
           var infowindowM1 = new google.maps.InfoWindow({
-              content:"Name: Jaclyn <br> Servings: 1<br> Allergies: none " 
+              content:"<h3> Name: Jaclyn <br> Servings: 1<br> Allergies: none </h3>" 
           });
           
           var infowindowM2 = new google.maps.InfoWindow({
-              content:"Name: Kim <br> Servings: 2 <br> Allergies: peanuts " 
+              content:"<h3> Name: Kim <br> Servings: 2 <br> Allergies: peanuts </h3>" 
           });
        
           google.maps.event.addListener(marker0,'click', function(){
@@ -242,7 +256,7 @@
               infowindowM2.open(map,marker2); 
           }); 
           
-         /* map.addListener('click', function(e) {
+     map.addListener('click', function(e) {
           placeMarker(e.latLng, map);
           });  
       }
@@ -254,7 +268,7 @@
               icon:'bowlRed.png'
           });
           map.panTo(position);
-      }*/
+      }
 
       function showError(error) {
           switch(error.code) {
