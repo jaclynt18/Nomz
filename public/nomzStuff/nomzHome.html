@@ -144,8 +144,8 @@
         </div>
         <div class = "collapse navbar-collapse" id="myNavbar">
           <ul class = "nav navbar-nav navbar-right">
-            <li class = "active"><a href = "#">Home</a></li>
-              <li><a href = "#">Profile</a></li>
+            <li class = "active"><a href = "#" onclick="window.location.href='nomzHome.html'">Home</a></li>
+              <li><a href = "#" onclick="window.location.href='login.html'">Log In</a></li>
               <li><a href = "#">About</a></li>
             </ul>
           </div>
@@ -212,6 +212,7 @@ var x = document.getElementById("demo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
+        TestMarker();
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -243,23 +244,10 @@ function showPosition(position) {
  
     google.maps.event.addListener(marker,'click', function(){
         infowindow.open(map,marker); 
-    });
-       
-    <!-----------------demo marker ----------------->
-    var demMarker = new google.maps.Marker({
-        position: new google.maps.LatLng(42.2936,71.3059),
-                                         map:map,
-                                         icon:'bagRed.png',
-                                         title:'You are here!'});
-    var infowindow = new google.maps.InfoWindow({
-        content:"This is some stuff" 
-    });
-    
-    google.maps.event.addListener(demMarker,'click', function(){
-        infowindow.open(map,demMarker); 
-    });
+    });     
+
 }
-     <!-----------------demo marker ----------------->
+     
 
 function showError(error) {
     switch(error.code) {
@@ -277,6 +265,19 @@ function showError(error) {
             break;
     }
 }
+    
+function addMarker(location) {
+    marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+}
+
+function TestMarker() {
+           CentralPark = new google.maps.LatLng(37.7699298, -122.4469157);
+           addMarker(CentralPark);
+    }
+    
 </script>
 
     
