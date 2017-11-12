@@ -173,7 +173,6 @@ var x = document.getElementById("demo");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
-        TestMarker();
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -205,7 +204,11 @@ function showPosition(position) {
  
     google.maps.event.addListener(marker,'click', function(){
         infowindow.open(map,marker); 
-    });     
+    }); 
+    
+    map.addListener('click', function(e) {
+    placeMarker(e.latLng, map);
+    });
 
 }
      
@@ -226,18 +229,16 @@ function showError(error) {
             break;
     }
 }
-    
-function addMarker(location) {
-    marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
+
+function placeMarker(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        icon:'bowlRed.png'
+    });
+    map.panTo(position);
 }
 
-function TestMarker() {
-           CentralPark = new google.maps.LatLng(37.7699298, -122.4469157);
-           addMarker(CentralPark);
-    }
     
 function removeDummy() {
     var elem = document.getElementById('dummy');
