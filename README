@@ -1,3 +1,5 @@
-testing 
+Nomz Web App:
 
-YAY NOMZ WOOO FOOD
+World hunger is often something we associate with starving people in third world countries, and is often nudged off as being unapproachable in our day to day lives. Yet over 41 million people struggle with hunger right here in the US. Additionally, the US has continued on a trend of increasing food waste, and statistics show upwards of 40% of our produce and other foodstuffs going to waste. Nomz makes addressing world hunger more accessible by connecting those with leftovers with those in need. Nomz aims to destimagatize hunger by making an accessible platform that allows people to donate or request foodin a much more casual interaction compared to going to a shelter or a foodbank. Our web app operates in a similar manner to Uber in that a map is used to locate the closest donors and receivers. 
+
+We implemented Nomz using Node.js, Express, MongoDB for the backend and Bootstrap for the frontend, and it is deployed on Heroku.
