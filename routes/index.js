@@ -17,7 +17,6 @@ router.get('/img/nomzBowl.png', function(req, res, next) {
 });
 
 router.get('/img/donate.png', function(req, res, next) {
-  console.log("got it")
   res.sendFile(path.join(__dirname, '../public/nomzStuff/img/donate.png'))
 });
 

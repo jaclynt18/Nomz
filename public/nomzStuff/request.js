@@ -20,17 +20,20 @@ MongoClient.connect(url, function(err, database) {
 /* GET home page. */
 	router.get('/', function(req, res, next) {
 	   console.log("userid: " + user.userid)
-	   res.sendFile(path.join(__dirname, '../public/nomzStuff', 'donate_pg.html'))
+	   res.sendFile(path.join(__dirname, '../public/nomzStuff', 'request_pg.html'))
 	})
 
 	router.post('/', function (req, res) {
 		db.collection("users").updateOne(
 			{ _id: user.userid },
 			{ $set: 
-				{ "user type" : "posting", 
-				  "food post" : {"servings" : req.body.servings, "food type" : req.body.foodtype }
+				{ "user type" : "R", 
+				  "receiving info" : {"servings" : req.body.servings, 
+				  "food type" : req.body.allergies, 
+				  "search radius" : req.body.searchRadius}
 				}
-			}, function(err, result) {
+			}, 
+				function(err, result) {
 			if (err)
 	     		console.log('Error')
 	  		else

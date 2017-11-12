@@ -23,11 +23,28 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', function(req, res, next) {
-	db.collection("users").insert({ "username" : req.body.uname, "password" : req.body.psw}, function(err, result) {
+	db.collection("users").findOne({"username" : req.body.uname}, function(err, answer) {
 		if (err)
-     		console.log('Error')
-  		else
-    		console.log('Success');
+			console.log('Error')
+		else {
+			if (!answer) {
+				db.collection("users").insertOne({ "username" : req.body.uname, 
+													"password" : req.body.psw}, 
+					function(err, result) {
+					if (err)
+			     		console.log('Error')
+			  		else {
+			    		console.log('Success');
+			    		userid = result.insertedId
+			    		console.log('inserted id: ' + userid)
+			    		module.exports.userid = result.insertedId;
+			    	}})
+			}
+		    else {
+		    	console.log("id: " + answer._id)
+		    	module.exports.userid = answer._id
+		    }
+  		}
 	})
 	res.sendFile(path.join(__dirname, '../public/nomzStuff', 'nomzHome.html'))
 });

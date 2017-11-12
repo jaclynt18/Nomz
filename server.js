@@ -5,6 +5,7 @@ var bodyParser = require('body-parser')
 var index = require('./routes/index')
 var user = require('./routes/user')
 var donate = require('./routes/donate')
+var request = require('./routes/request')
 
 
 app.set('views', path.join(__dirname, 'views'))
@@ -21,6 +22,7 @@ app.use(function(req, res, next) {
 app.use('/', user)
 app.use('/', index)
 app.use('/donate_pg.html', donate)
+app.use('/request_pg.html', request)
 
 app.listen(process.env.PORT || 8000 , function() {
 	console.log("Listening on port 8000")
