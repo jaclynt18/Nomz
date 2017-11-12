@@ -166,21 +166,8 @@
 <!--start geolocation -->
 
  <form id = "myForm" method="post"> 
-<<<<<<< HEAD
-<div id="mapholder"></div>
-<script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-=======
 <div id="mapholder"></div> 
->>>>>>> 4ee0fe76f9af322d22b146271325d82713aa7023
+
     <input type='hidden' id='hiddenField' name='latlong' value=''/>
       <script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
       <script>
@@ -245,7 +232,7 @@ function getLocation() {
     map.addListener('click', function(e) {
     placeMarker(e.latLng, map);
     });  
-      }
+}
            
 function showError(error) {
     switch(error.code) {
@@ -273,7 +260,6 @@ function placeMarker(position, map) {
     map.panTo(position);
 }
 
-<<<<<<< HEAD
       function showError(error) {
           switch(error.code) {
               case error.PERMISSION_DENIED:
@@ -290,9 +276,7 @@ function placeMarker(position, map) {
                   break;
           }
       }
-     </form>  
-    </script>
-=======
+ 
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
@@ -309,7 +293,6 @@ function showError(error) {
             break;
     }
 }
->>>>>>> 4ee0fe76f9af322d22b146271325d82713aa7023
 
 function removeDummy() {
  var elem = document.getElementById('dummy');
