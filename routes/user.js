@@ -49,9 +49,6 @@ router.post('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../public/nomzStuff', 'nomzHome.html'))
 });
 
-router.post('/', function(req, res, next) {
-    console.log("latlong: " + req.body.latlon)
-})
     /*router.get('/', function(req, res, next) {
       res.render('index', { title: 'Express' })
     })
