@@ -139,7 +139,7 @@ p {
 
 <div class = "container-fluid text-center">
     <h2>Welcome to Nomz!</h2>
-    <img src = img/nomzTitle.png> 
+    <img src = "img/nomzTitle.png"> 
     <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 </div>
 
@@ -148,7 +148,7 @@ p {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="img/nomzBowl.png" alt="Hello!" class="avatar">
