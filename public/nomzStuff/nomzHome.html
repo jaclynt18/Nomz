@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
   </script>
@@ -50,11 +51,12 @@
 
       .carousel-caption{
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(-90%);
           text-transform: uppercase;
+
       }
       .btn{
-	      height: 50px;
+          font-family: 'Source Sans Pro', sans-serif;
           width: 100
           font-size: 18px;
           color: azure;
@@ -92,10 +94,12 @@
     }
 
     h1 {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 300%;
-    color: mintcream;
-    }
+	font-family: 'Cabin Sketch', cursive;
+	font-size: 90px;
+	font-weight: 500;
+	line-height: 20px;
+    padding-bottom: 30px;
+}
     h2 {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 100%;
@@ -110,14 +114,19 @@
     color: azure;
     position: relative;
     float: left;
-    top: 50%;
+    top: 100%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 15%);
     padding-bottom: px;
     }
         
-        .carousel-inner{
-            height:350px;
+        img {
+    width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: contain;
+}
+.carousel-inner{
+        height:350px;
         }
     </style>
 </head>
@@ -146,8 +155,8 @@
 <!------ start geolocation --------------->
 
 <div id = "myCarousel" class = "carousel slide" data-ride="carousel">
+
         <ol class = "carousel-indicators">
-          <button onclick="getLocation()" type = "button" class = "btn btn-default">Show map!</button>
         <li data-target = "#myCarousel" data-slide-to="0" class = "active"></li>
         <li data-target = "#myCarousel" data-slide-to="1"></li>
         <li data-target = "#myCarousel" data-slide-to="2"></li>
@@ -156,23 +165,38 @@
 
         <div class = "carousel-inner" role = "listbox">
             <div class = "item active">
-            <img src = "img/red.png">
+            <img src = "img/grains.png">
             <div class = "carousel-caption">
+                <h1>Welcome</h1>
+                <h1>to Nomz!</h1>
+                 <button onclick="getLocation()" type = "button" class = "btn btn-default">SHOW MAP!</button>
             </div>
             </div><!----End Active ---->
             <div class = "item">
-                <img src = "img/mountains.png">
+                <img src = "img/colorfoods.png">
+                <div class = "carousel-caption">
+                <h1>Combatting</h1>
+                <h1>hunger</h1>
+                <button onclick="getLocation()" type = "button" class = "btn btn-default">SHOW MAP!</button>
+            </div>
             </div>
                 <div class = "item">
-                    <img src = "img/snow.png">
+                <img src = "img/bkg-corn.png">
+                <div class = "carousel-caption">
+                <h1>Reducing</h1>
+                <h1>food waste</h1>
+                <button onclick="getLocation()" type = "button" class = "btn btn-default">SHOW MAP!</button>
+                </div>
             </div>
         
         </div>
         <!---Start Slider Control ----->
+
         <a class="left carousel-control" href = "#myCarousel" role = "button" data-slide="prev">
         <span class = "glyphicon glyphicon-chevron-left" aria-hidden = "true"></span>
         <span class = "sr-only">Previous</span>
         </a>
+    
         <a class="right carousel-control" href = "#myCarousel" role = "button" data-slide="next">
         <span class = "glyphicon glyphicon-chevron-right" aria-hidden = "true"></span>
         <span class = "sr-only">Next</span>
@@ -208,7 +232,17 @@ function showPosition(position) {
     }
     
     var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+    var marker = new google.maps.Marker({position:latlon,
+                                         map:map,
+                                         icon:'bowlRed.png',
+                                         title:'You are here!'});
+    var infowindow = new google.maps.InfoWindow({
+        content:"This is some stuff" 
+    });
+    
+    google.maps.event.addListener(marker,'click', function(){
+        infowindow.open(map,marker); 
+    });
 }
 
 function showError(error) {
@@ -249,9 +283,6 @@ function showError(error) {
 <!------start of about --------------->
 <section id="about" class="about-section">
   <div class="container fluid">
-      <div class="container-fluid text-center">
-        <img src = "img/about.png" id = "about">
-      </div>
       <div class="container-fluid text-center">
           <p> Over 41 million people struggle with hunger in the US alone, yet as a country we continue on a trend of increasing food waste. Statistics show upwards of 40% of our produce and other foodstuffs goes to waste annually. Nomz makes addressing world hunger more accessible by connecting those with leftovers to those in need. Nomz aims to de-stigmatize hunger by making an accessible platform that allows people to donate or request food in a much more casual interaction compared to going to a shelter or food bank. Use our convenient mapping and messaging system to make a difference today! </p>
     </div>
