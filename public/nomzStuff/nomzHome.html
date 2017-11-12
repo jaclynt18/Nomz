@@ -59,7 +59,6 @@
           font-size: 18px;
           color: azure;
           background: #133C55 ;
-          border: 2px #FFF solid;
           
       }
       
@@ -148,14 +147,11 @@
 
 <div id = "myCarousel" class = "carousel slide" data-ride="carousel">
         <ol class = "carousel-indicators">
-        <h1>Welcome to Nomz!</h1>
-        <h2>Nomz connects those with leftovers to those in need, combating hunger 1 meal at a time. </h2>
-        <button onclick="getLocation()" type = "button" class = "btn btn-default">Show map!</button>
-            
+          <button onclick="getLocation()" type = "button" class = "btn btn-default">Show map!</button>
         <li data-target = "#myCarousel" data-slide-to="0" class = "active"></li>
         <li data-target = "#myCarousel" data-slide-to="1"></li>
         <li data-target = "#myCarousel" data-slide-to="2"></li>
-        
+       
         </ol>
 
         <div class = "carousel-inner" role = "listbox">
@@ -239,12 +235,12 @@ function showError(error) {
         <div class = "border row">
              <div class="border col-xs-6".col-xs-6>
                 <button onclick="window.location.href='donate_pg.html'"> 
-                <img src="/img/donate.png" id = "icon">
+                <img src = "img/donate.png" id = "icon">
                  </button>
                </div>     
             <div class="border col-xs-6".col-xs-6>
                 <button onclick="window.location.href='request_pg.html'">
-                <img src="/img/request.png" id = "icon">
+                <img src= "img/request.png" id = "icon">
                 </button>
             </div>
         </div>
