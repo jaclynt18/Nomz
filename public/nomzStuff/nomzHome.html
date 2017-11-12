@@ -152,13 +152,13 @@
       </div>
     </nav>
     
-<div class = "carousel-inner" role = "listbox">
+<div class = "carousel-inner" role = "listbox" id = "dummy">
             <div class = "active">
             <img src = "img/googlemap.png">
             <div class = "carousel-caption">
                 <h1>Welcome</h1>
                 <h1>to Nomz!</h1>
-                 <button onclick="getLocation()" type = "button" class = "btn btn-default">SHOW MAP!</button>
+                 <button type = "button" class = "btn btn-default" onclick="removeDummy(); getLocation();">SHOW MAP!</button>
             </div>
             </div>
   </div>
@@ -191,6 +191,7 @@
           var mapholder = document.getElementById('mapholder')
           mapholder.style.height = '400px';
 
+<<<<<<< HEAD
           var myOptions = {
           center:latlon,zoom:14,
           mapTypeId:google.maps.MapTypeId.ROADMAP,
@@ -204,12 +205,33 @@
                                                icon:'bagRed.png',
                                                title:'You are here!'});
           var infowindow = new google.maps.InfoWindow({
-              content:"This is some stuff" 
+              content:"Name: <br> Servings: <br> Type of Food: " 
           });
        
           google.maps.event.addListener(marker,'click', function(){
               infowindow.open(map,marker); 
           });     
+=======
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,
+                                         map:map,
+                                         icon:'bagRed.png',
+                                         title:'You are here!'});
+    var infowindow = new google.maps.InfoWindow({
+        content:"Name: <br> Servings: <br> Type of Food: " 
+    });
+ 
+    google.maps.event.addListener(marker,'click', function(){
+        infowindow.open(map,marker); 
+    });     
+>>>>>>> 4b6c86e49010a7c670dfda51d57ef590aa3cfa4b
 
       }
            
@@ -238,6 +260,7 @@
               });
       }
 
+<<<<<<< HEAD
       function TestMarker() {
                  CentralPark = new google.maps.LatLng(37.7699298, -122.4469157);
                  addMarker(CentralPark);
@@ -245,6 +268,21 @@
           
       </script>
   </form>
+=======
+function TestMarker() {
+           CentralPark = new google.maps.LatLng(37.7699298, -122.4469157);
+           addMarker(CentralPark);
+    }
+    
+function removeDummy() {
+    var elem = document.getElementById('dummy');
+    elem.parentNode.removeChild(elem);
+    return false;
+}
+
+    
+</script>
+>>>>>>> 4b6c86e49010a7c670dfda51d57ef590aa3cfa4b
 
     
 <!---------End of Slider  ------>
