@@ -13,6 +13,7 @@
   </script>
    <link rel="stylesheet" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
     
     <style>
         .navbar{
@@ -37,8 +38,13 @@
           color:#D5D5D5;
       }
       
+    .about-section{
+            background-color: #133C55;
+            height: 400px;
+        }
+        
       .new-section {
-            height: 100%;
+            height: 150%;
             text-align: center;
             background: #eee;
         }
@@ -79,15 +85,43 @@
     height: 600px;
     }
 
-    h1 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 300%;
-}
+    #nomzBowl{
+    height: 200px;
+    }
     
-    p  {
+        #requestDiv{
+            padding-top: 80px;
+            padding-bottom: 80px;
+            background-color:azure;
+            font-family: monospace;
+            font-size: 120%;
+        }
+    h1 {
+   font-family: 'Cabin Sketch', cursive;
+	font-size: 90px;
+	font-weight: 500;
+	line-height: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    }
+    
+    h2 {
+    font-family: "Times New Roman", Times, serif;  
+    font-size:100%;
+        }
+    
+    p {
     font-family: "Times New Roman", Times, serif;
-    font-size: 160%;
-}
+    font-size: 120%;
+    font-style: oblique;
+    color: azure;
+    position: relative;
+    float: left;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    padding-bottom: px;
+    }
     </style>
 </head>
 
@@ -104,84 +138,26 @@
         </div>
         <div class = "collapse navbar-collapse" id="myNavbar">
           <ul class = "nav navbar-nav navbar-right">
-            <li class = "active"><a href = "#">Home</a></li>
-              <li><a href = "#">Profile</a></li>
+            <li class = "active"><a href = "#" onclick="window.location.href='nomzHome.html'">Home</a></li>
+              <li><a href = "#" onclick="window.location.href='login.html'">Log In</a></li>
               <li><a href = "#">About</a></li>
             </ul>
           </div>
       </div>
     </nav>
-
-<!------ start geolocation --------------->
-
-
+    
 <section id="new" class="new-section">
   <div class="container fluid">
     <div class="row">
       <div class="container text-center">
-        <h1>What kind of food would you like to request? Please enter your preferences</h1>
-      </div>
-
-      <div class="container text-center #E4F6F8">
-          <button onclick="getLocation()" type = "button" class = "btn btn-default">Click Me to Enable Map!</button>
-      </div>
+        <h1>Request</h1>
+          <div class="container fluid">
+        <img src = "img/nomzBowl.png" id = "nomzBowl">
     </div>
   </div>
 </section>    
     
-
-<div id="mapholder"></div>
-
-<script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-    var latlon = new google.maps.LatLng(lat, lon)
-    var mapholder = document.getElementById('mapholder')
-    mapholder.style.height = '400px';
-
-    var myOptions = {
-    center:latlon,zoom:14,
-    mapTypeId:google.maps.MapTypeId.ROADMAP,
-    mapTypeControl:false,
-    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-    }
-    
-    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-}
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
-</script>
-
-    
-<!---------End of Slider  ------>
-    <div class= "container-fluid text-center">
+<div class= "container-fluid text-center" id = "requestDiv">
         <div class = "border row">
              <div class="border col-xs-4".col-xs-4>
               <form method="post">
@@ -193,8 +169,8 @@ function showError(error) {
                  Allergies:<br>
                     <input type="text" name="allergies" >
                     <br><br>
-                    <input type="submit" value="Submit">
-            </div>
+                <input type="submit" value="Submit">
+         </div>
             <div class="border col-xs-4".col-xs-4>
                  Search Radius:<br>
                     <input type="text" name="searchRadius" >
@@ -203,6 +179,15 @@ function showError(error) {
             </div>
         </div>
     </div>
+
+      
+<section id="about" class="about-section">
+  <div class="container fluid">
+      <div class="container-fluid text-center">
+          <p> Over 41 million people struggle with hunger in the US alone, yet as a country we continue on a trend of increasing food waste. Statistics show upwards of 40% of our produce and other foodstuffs goes to waste annually. Nomz makes addressing world hunger more accessible by connecting those with leftovers to those in need. Nomz aims to de-stigmatize hunger by making an accessible platform that allows people to donate or request food in a much more casual interaction compared to going to a shelter or food bank. Use our convenient mapping and messaging system to make a difference today! </p>
+    </div>
+  </div>
+    
 </body>
 </html>
 

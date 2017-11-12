@@ -1,26 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-    <link rel="stylesheet" href="styles.css">
-    <h1>What kind of food would you like to Donate? Please fill out the following information.</h1>
-    </head>
-    <body>
+    <!DOCTYPE html>
 
-<form method="post">
-  Servings:<br>
-  <input type="text" name="servings">
-  <br>
-  Food Type:<br>
-  <input type="text" name="foodtype" >
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
-
-<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Website Tutorial</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+   <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
     
+    <style>
+        .navbar{
+          margin-bottom: 0;
+          border-radius: 0;
+          background-color:#393E41;
+          color: #FFF;
+          padding: 1% 0;
+          font-size: 1.2 em;
+          border: 0;
+      }
+      .navbar-brand {
+          float: left;
+          max-height: 50px;
+          padding: 0 15px 5px;
+      }
+      .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus, .navbar-inverse .navbar-nav .active a:hover,{
+          color:#FFF;
+          background-color: #5E4485;
+      }
+      .navbar-inverse .navbar-nav li a{
+          color:#D5D5D5;
+      }
+      
+    .about-section{
+            background-color: #133C55;
+            height: 400px;
+        }
+        
+      .new-section {
+            height: 150%;
+            text-align: center;
+            background: #eee;
+        }
+        .cadetblue {
+            background-color: cadetblue;
+        }
+
+      .carousel-caption{
+          top: 50%;
+          transform: translateY(-50%);
+          text-transform: uppercase;
+      }
+      .btn{
+          font-size: 18px;
+          color: #FFF;
+          padding:12px 22px;
+          background: cadetblue ;
+          border: 2px #FFF solid;
+          width: 500px;
+      }
+      
+      div#mapholder {
+          margin: 0 auto 0 auto;
+      }
+      
+      #icon {
+          max-height: 300px
+          margin: 1% auto;
+      }
+
+      @media(max-width: 600px){
+          .carousel-caption{
+              display:none;
+          }
+      }
+
+    #map {
+    height: 600px;
+    }
+
+    #nomzBowl{
+    height: 200px;
+    }
     
-    </body>    
+        #donateDiv{
+            padding-top: 80px;
+            padding-bottom: 80px;
+            background-color:azure;
+            font-family: monospace;
+            font-size: 120%;
+        }
+    h1 {
+   font-family: 'Cabin Sketch', cursive;
+	font-size: 90px;
+	font-weight: 500;
+	line-height: 20px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    }
+    
+    h2 {
+    font-family: "Times New Roman", Times, serif;  
+    font-size:100%;
+        }
+    
+    p {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 120%;
+    font-style: oblique;
+    color: azure;
+    position: relative;
+    float: left;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    padding-bottom: px;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle = "collapse" data-target = "#myNavbar">
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+              <span class = "icon-bar"></span>
+          </button>
+          <img src = "img/nomzTitle.png" style="width:450px;height:128px;">
+        </div>
+        <div class = "collapse navbar-collapse" id="myNavbar">
+          <ul class = "nav navbar-nav navbar-right">
+            <li class = "active"><a href = "#" onclick="window.location.href='nomzHome.html'">Home</a></li>
+              <li><a href = "#" onclick="window.location.href='login.html'">Log In</a></li>
+              <li><a href = "#">About</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+    
+<section id="new" class="new-section">
+  <div class="container fluid">
+    <div class="row">
+      <div class="container text-center">
+        <h1>Donate!</h1>
+          <div class="container fluid">
+        <img src = "img/nomzBowl.png" id = "nomzBowl">
+    </div>
+  </div>
+</section>    
+    
+<div class= "container-fluid text-center" id = "donateDiv">
+        <div class = "border row">
+             <div class="border col-xs-6".col-xs-6>
+              <form method="post">
+               Number of Servings:<br>
+                 <input type="text" name="servings">
+                <br>
+               </div>     
+            <div class="border col-xs-6".col-xs-6>
+                 Type of Food:<br>
+                    <input type="text" name="typeFood" >
+                    <br><br>
+              </form>
+            </div>
+        </div>
+    </div>
+
+      
+<section id="about" class="about-section">
+  <div class="container fluid">
+      <div class="container-fluid text-center">
+          <p> Over 41 million people struggle with hunger in the US alone, yet as a country we continue on a trend of increasing food waste. Statistics show upwards of 40% of our produce and other foodstuffs goes to waste annually. Nomz makes addressing world hunger more accessible by connecting those with leftovers to those in need. Nomz aims to de-stigmatize hunger by making an accessible platform that allows people to donate or request food in a much more casual interaction compared to going to a shelter or food bank. Use our convenient mapping and messaging system to make a difference today! </p>
+    </div>
+  </div>
+    
+</body>
 </html>
+
+
     
