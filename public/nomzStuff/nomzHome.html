@@ -256,18 +256,6 @@
               infowindowM2.open(map,marker2); 
           }); 
           
-     map.addListener('click', function(e) {
-          placeMarker(e.latLng, map);
-          });  
-      }
-
-      function placeMarker(position, map) {
-          var marker = new google.maps.Marker({
-              position: position,
-              map: map,
-              icon:'bowlRed.png'
-          });
-          map.panTo(position);
       }
 
       function showError(error) {
