@@ -185,8 +185,8 @@
           var lat = position.coords.latitude;
           var lon = position.coords.longitude;
           var latlon = new google.maps.LatLng(lat, lon)
-          document.getElementById('hiddenField').value = latlon;
-          document.getElementById("myForm").submit();
+          //document.getElementById('hiddenField').value = latlon;
+          //document.getElementById("myForm").submit();
 
           var mapholder = document.getElementById('mapholder')
           mapholder.style.height = '400px';
@@ -199,19 +199,50 @@
           }
           
           var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-          var marker = new google.maps.Marker({position:latlon,
+          
+          var marker0 = new google.maps.Marker({position:latlon,
                                                map:map,
                                                icon:'bagRed.png',
                                                title:'You are here!'});
-          var infowindow = new google.maps.InfoWindow({
-              content:"Name: <br> Servings: <br> Type of Food: " 
+          
+          var marker1 = new google.maps.Marker({
+                                            position:{lat:lat+0.01,lng: lon +0.01},
+                                               map:map,
+                                               icon:'bowlRed.png',
+                                               title:'You are here!'});
+         
+          var marker2 = new google.maps.Marker({
+                                            position:{lat:lat+0.01,lng: lon -0.01},
+                                               map:map,
+                                               icon:'bowlRed.png',
+                                               title:'You are here!'});
+          
+          
+          
+          var infowindowM0 = new google.maps.InfoWindow({
+              content:"Me <br> Servings: 2 <br> Type of Food: Paninis" 
+          });
+          
+          var infowindowM1 = new google.maps.InfoWindow({
+              content:"Name: Jaclyn <br> Servings: 1<br> Allergies: none " 
+          });
+          
+          var infowindowM2 = new google.maps.InfoWindow({
+              content:"Name: Kim <br> Servings: 2 <br> Allergies: peanuts " 
           });
        
-          google.maps.event.addListener(marker,'click', function(){
-              infowindow.open(map,marker); 
+          google.maps.event.addListener(marker0,'click', function(){
+              infowindowM0.open(map,marker0); 
+          }); 
+          google.maps.event.addListener(marker1,'click', function(){
+              infowindowM1.open(map,marker1); 
           }); 
           
-          map.addListener('click', function(e) {
+          google.maps.event.addListener(marker2,'click', function(){
+              infowindowM2.open(map,marker2); 
+          }); 
+          
+         /* map.addListener('click', function(e) {
           placeMarker(e.latLng, map);
           });  
       }
@@ -223,7 +254,7 @@
               icon:'bowlRed.png'
           });
           map.panTo(position);
-      }
+      }*/
 
       function showError(error) {
           switch(error.code) {
