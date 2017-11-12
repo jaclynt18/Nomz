@@ -12,6 +12,18 @@ router.get('/img/nomzTitle.png', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public/nomzStuff/img', 'nomzTitle.png'))
 });
 
+router.get('/img/grains.png', function(req, res, next) {
+	res.sendFile(path.join(__dirname, '../public/nomzStuff/img/grains.png'))
+});
+
+router.get('/img/colorfoods.png', function(req, res, next) {
+	res.sendFile(path.join(__dirname, '../public/nomzStuff/img/colorfoods.png'))
+});
+
+router.get('/img/bkg-corn.png', function(req, res, next) {
+	res.sendFile(path.join(__dirname, '../public/nomzStuff/img/bkg-corn.png'))
+});
+
 router.get('/img/nomzBowl.png', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public/nomzStuff/img', 'nomzBowl.png'))
 });
@@ -24,8 +36,12 @@ router.get('/img/request.png', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../public/nomzStuff/img/request.png'))
 });
 
-router.get('/request_pg.html', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/nomzStuff', 'request_pg.html'))
+router.get('/bagRed.png', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public/nomzStuff', 'bagRed.png'))
+});
+
+router.get('/bowlRed.png', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../public/nomzStuff', 'bowlRed.png'))
 });
 
 module.exports = router;
