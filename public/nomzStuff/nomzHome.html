@@ -234,16 +234,31 @@ function showPosition(position) {
     var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
     var marker = new google.maps.Marker({position:latlon,
                                          map:map,
-                                         icon:'bowlRed.png',
+                                         icon:'bagRed.png',
+                                         title:'You are here!'});
+    var infowindow = new google.maps.InfoWindow({
+        content:"This is some stuff" 
+    });
+ 
+    google.maps.event.addListener(marker,'click', function(){
+        infowindow.open(map,marker); 
+    });
+       
+    <!-----------------demo marker ----------------->
+    var demMarker = new google.maps.Marker({
+        position: new google.maps.LatLng(42.2936,71.3059),
+                                         map:map,
+                                         icon:'bagRed.png',
                                          title:'You are here!'});
     var infowindow = new google.maps.InfoWindow({
         content:"This is some stuff" 
     });
     
-    google.maps.event.addListener(marker,'click', function(){
-        infowindow.open(map,marker); 
+    google.maps.event.addListener(demMarker,'click', function(){
+        infowindow.open(map,demMarker); 
     });
 }
+     <!-----------------demo marker ----------------->
 
 function showError(error) {
     switch(error.code) {
