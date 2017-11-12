@@ -7,10 +7,6 @@ var user = require('./routes/user')
 var donate = require('./routes/donate')
 var request = require('./routes/request')
 
-
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 

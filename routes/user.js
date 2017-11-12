@@ -43,12 +43,28 @@ router.post('/', function(req, res, next) {
             else {
                 console.log("id: " + answer._id)
                 module.exports.userid = answer._id
+                userid = answer._id
             }
         }
     })
     res.sendFile(path.join(__dirname, '../public/nomzStuff', 'nomzHome.html'))
+    next()
 });
 
+
+router.post('/', function(req, res, next) {
+    console.log("loc: " + req.body.latlong + " userid: " + userid)
+    db.collection("users").updateOne({_id : userid}, 
+                                     { $set: 
+                                        {"location" : req.body.latlong}
+                                     }),
+    function(err, result) {
+        if (err)
+            console.log('Error')
+        else
+            console.log('Success');
+    }
+})
     /*router.get('/', function(req, res, next) {
       res.render('index', { title: 'Express' })
     })
