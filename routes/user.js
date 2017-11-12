@@ -48,11 +48,10 @@ router.post('/', function(req, res, next) {
         }
     })
     res.sendFile(path.join(__dirname, '../public/nomzStuff', 'nomzHome.html'))
-    next()
 });
 
 
-router.post('/', function(req, res, next) {
+router.post('/latlong', function(req, res, next) {
     console.log("loc: " + req.body.latlong + " userid: " + userid)
     db.collection("users").updateOne({_id : userid}, 
                                      { $set: 
