@@ -162,22 +162,11 @@
             </div>
             </div>
   </div>
-<!----End Active ---->
-<!------ start geolocation --------------->
+<!--End Active-->
+<!--start geolocation -->
 
  <form id = "myForm" method="post"> 
-<div id="mapholder"></div>
- </form>  
-<script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+<div id="mapholder"></div> 
     <input type='hidden' id='hiddenField' name='latlong' value=''/>
       <script src="https://maps.google.com/maps/api/js?AIzaSyDZk4vZmwZCD3gMe0TXd0KVGWM__b-hstU"></script>
       <script>
@@ -185,7 +174,6 @@ function getLocation() {
       function getLocation() {
           if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(showPosition, showError);
-              TestMarker();
           } else { 
               x.innerHTML = "Geolocation is not supported by this browser.";
           }
@@ -271,27 +259,33 @@ function placeMarker(position, map) {
     map.panTo(position);
 }
 
-      function showError(error) {
-          switch(error.code) {
-              case error.PERMISSION_DENIED:
-                  x.innerHTML = "User denied the request for Geolocation."
-                  break;
-              case error.POSITION_UNAVAILABLE:
-                  x.innerHTML = "Location information is unavailable."
-                  break;
-              case error.TIMEOUT:
-                  x.innerHTML = "The request to get user location timed out."
-                  break;
-              case error.UNKNOWN_ERROR:
-                  x.innerHTML = "An unknown error occurred."
-                  break;
-          }
-      }
-    </script>
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
 
+function removeDummy() {
+ var elem = document.getElementById('dummy');
+ elem.parentNode.removeChild(elem);
+ return false; 
+}
+</script>
+ </form> 
 
     
-<!---------End of Slider  ------>
+<!--End of Slider-->
     <div class= "container-fluid">
         <div class = "border row">
              <div class="border col-xs-6".col-xs-6>
@@ -307,7 +301,7 @@ function placeMarker(position, map) {
         </div>
     </div>
     
-<!------start of about --------------->
+<!--start of about -->
 <section id="about" class="about-section">
   <div class="container fluid">
       <div class="container-fluid text-center">
