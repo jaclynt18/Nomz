@@ -29,7 +29,7 @@ MongoClient.connect(url, function(err, database) {
 			{ $set: 
 				{ "user type" : "receiving", 
 				  "receiving info" : {"servings" : req.body.servings, 
-				  "food type" : req.body.allergies, 
+				  "allergies" : req.body.allergies, 
 				  "search radius" : req.body.searchRadius}
 				}
 			}, function(err, result) {
