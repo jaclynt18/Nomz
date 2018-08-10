@@ -20,6 +20,8 @@
     "eslint": "^4.8.0"
   },
   "dependencies": {
-    "google-auth-library": "^0.11.0"
+    "body-parser": "^1.18.3",
+    "google-auth-library": "^0.11.0",
+    "mongoose": "^5.2.6"
   }
 }

@@ -164,19 +164,17 @@ p {
     </div>
 
     <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <form method = "post" action = "/">
+        <label><b>Name</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button onclick="window.location.href='nomzHome.html'" type="submit">Signup/Login</button>
-      <input type="checkbox" checked="checked"> Remember me
+        <input onclick="window.location.href='nomzHome.html'" type="submit" value = "Signup/Login">
+        <input type="checkbox" checked="checked"> Remember me
+      </form>   
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>

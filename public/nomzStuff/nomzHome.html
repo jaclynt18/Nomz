@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -181,10 +182,17 @@
 
  
 <div id="mapholder"></div> 
-  <form id = "myForm" action="/latlong" method="post"> 
-    <input type='hidden' id='hiddenField' name='latlong' value=''/>
-      <script src="https://maps.google.com/maps/api/js?key=AIzaSyBLyh7PYP-TFkGl-aGVcKxBHuJyXowd50E&callback=initMap"></script>
+
       <script>
+     function initMap(){
+        console.log("map initiated");
+      }
+      </script>
+      <script src="https://maps.google.com/maps/api/js?key=AIzaSyA3vaWO3re9ievciM9H71NUJpv_DyeDkHI&callback=initMap"></script>
+      <script>
+              
+     
+        
       var x = document.getElementById("demo");
       function getLocation() {
           if (navigator.geolocation) {
@@ -198,7 +206,9 @@
       function showPosition(position) {
           var lat = position.coords.latitude;
           var lon = position.coords.longitude;
-          var latlon = new google.maps.LatLng(lat, lon)
+          var latlon = new google.maps.LatLng(lat, lon);
+        
+          recordLocation(lat, lon);
           //document.getElementById('hiddenField').value = latlon;
           //document.getElementById("myForm").submit();
 
@@ -257,6 +267,29 @@
           }); 
           
       }
+      function recordLocation(lat, long){
+        
+        var url = location.href;
+        var id = url.split('home/')[1];
+        console.log(id);
+        var sendInfo = {
+          lat: lat,
+          lon: long
+        }
+        
+        $.ajax({
+          type: "POST",
+          url: "/home/" + id,
+          dataType: "json",
+          data: sendInfo,
+          sucess: function(msg){
+            console.log("sucess")
+          },
+          error:function(jqXhr, textStatus, errorThrown) {
+        console.log(errorThrown);
+        }
+        });
+      }
 
       function showError(error) {
           switch(error.code) {
@@ -280,8 +313,8 @@
        elem.parentNode.removeChild(elem);
        return false; 
       }
+
   </script>
-</form>
 
     
 <!--End of Slider-->

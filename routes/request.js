@@ -3,7 +3,7 @@ var router = express.Router()
 var bodyParser = require('body-parser')
 var path = require('path')
 var MongoClient = require('mongodb').MongoClient
-var url = "mongodb://jaclyn:nomz@ds023530.mlab.com:23530/nomz"
+var url = "mongodb://kmt2288:Mauipuprox18@ds113522.mlab.com:13522/nomzdata"
 var user = require('./user')
 var db
 
